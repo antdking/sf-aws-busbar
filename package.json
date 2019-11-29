@@ -1,0 +1,22 @@
+{
+  "name": "sf-aws-busbar",
+  "version": "0.0.1",
+  "main": "index.js",
+  "engines": {
+    "node": ">=12.13.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "tsc": "tsc",
+    "build": "rm -rf ./dist && tsc"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.580.0",
+    "jsforce": "^1.9.3"
+  },
+  "devDependencies": {
+    "@types/jsforce": "^1.9.12",
+    "@types/node": "^12.12.14",
+    "typescript": "^3.7.2"
+  }
+}
