@@ -1,14 +1,13 @@
-import EventStream from './sf/stream';
-import SQSClient from './sqs/client';
-import Event from './interface/event';
+import IncomingStream from "./interface/incomingStream";
+import OutgoingStream from "./interface/outgoingStream";
+import Event from "./interface/event";
 
 
 class Bridge {
-    incomingStream: EventStream
-    outgoingStream: SQSClient
+    incomingStream: IncomingStream
+    outgoingStream: OutgoingStream
 
-
-    constructor(incomingStream: EventStream, outgoingStream: SQSClient) {
+    constructor(incomingStream: IncomingStream, outgoingStream: OutgoingStream) {
         this.incomingStream = incomingStream
         this.outgoingStream = outgoingStream
     }

@@ -1,14 +1,15 @@
-import { Connection as SFConnection, Streaming } from 'jsforce'
+import { Connection as SFConnection } from 'jsforce'
 import Event from '../interface/event';
+import IncomingStream from '../interface/incomingStream';
 
-class Stream {
+class Stream implements IncomingStream {
     conn: SFConnection
     _fayeClient: any // Faye Client
 
     constructor(conn: SFConnection) {
         this.conn = conn;
         this._fayeClient = null;
-    };;
+    }
 
     subscribeEvent(name: string, listener: (event: Event) => void) {
         const channelName = `/event/${name}`;

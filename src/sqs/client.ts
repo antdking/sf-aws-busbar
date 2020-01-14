@@ -1,8 +1,8 @@
 import SQS from 'aws-sdk/clients/sqs';
 import Event from '../interface/event';
-import { resolve } from 'dns';
+import OutgoingStream from '../interface/outgoingStream';
 
-export default class Client {
+export default class Client implements OutgoingStream {
     sqs: SQS
     queueUrl: string
 
@@ -13,21 +13,18 @@ export default class Client {
         this.queueUrl = queueUrl;
     }
 
-    async sendEvent(event: Event, name: string) {
+    async sendEvent(event: Event, name: string): Promise<void> {
         console.log(`event received: ${name}: ${JSON.stringify(event)}`);
-        return new Promise((resolve) => {
-            this.sqs.sendMessage({
-                QueueUrl: this.queueUrl,
-                MessageGroupId: 'sf-aws-busbar',
-                MessageDeduplicationId: `sf-aws-busbar_${name}_${event.event.replayId}`,
-                MessageBody: JSON.stringify({
-                    name: name,
-                    message: event,
-                })
-            }, (error, data) => {
-                console.log(`event finished: ${name}: ${event.event.replayId}`);
-                resolve();
-            });
-        })
+
+        await this.sqs.sendMessage({
+            QueueUrl: this.queueUrl,
+            MessageGroupId: 'sf-aws-busbar',
+            MessageDeduplicationId: `sf-aws-busbar_${name}_${event.event.replayId}`,
+            MessageBody: JSON.stringify({
+                name: name,
+                message: event,
+            })
+        }).promise();
+        console.log(`event finished: ${name}: ${event.event.replayId}`);
     }
 }
