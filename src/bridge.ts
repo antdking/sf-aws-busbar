@@ -3,7 +3,7 @@ import OutgoingStream from "./interface/outgoingStream";
 import Event from "./interface/event";
 
 
-class Bridge {
+export default class Bridge {
     incomingStream: IncomingStream
     outgoingStream: OutgoingStream
 
@@ -21,5 +21,3 @@ class Bridge {
         console.log("subscribed");
     }
 }
-
-export default Bridge;
