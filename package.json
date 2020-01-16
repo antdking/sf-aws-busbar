@@ -12,7 +12,8 @@
     "ts-jest": "ts-jest",
     "jest": "jest",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "lint": "eslint --ext .js --ext .ts ."
   },
   "dependencies": {
     "aws-sdk": "^2.580.0",
@@ -22,7 +23,12 @@
     "@types/jest": "^24.0.25",
     "@types/jsforce": "^1.9.12",
     "@types/node": "^13.1.7",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
     "aws-sdk-mock": "^5.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^6.3.1",
+    "eslint-plugin-import": "^2.20.0",
     "jest": "^24.9.0",
     "ts-jest": "^24.3.0",
     "typescript": "^3.7.2"

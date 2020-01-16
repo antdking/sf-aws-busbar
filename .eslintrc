@@ -1,0 +1,18 @@
+{
+    "extends": [
+        "airbnb-typescript/base"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "env": {
+        "jest": true
+    },
+    "rules": {
+        "object-curly-spacing": [
+            "error",
+            "never"
+        ]
+    }
+}
