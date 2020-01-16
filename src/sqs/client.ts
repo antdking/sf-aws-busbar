@@ -6,10 +6,8 @@ export default class Client implements OutgoingStream {
     sqs: SQS
     queueUrl: string
 
-    constructor(queueUrl: string) {
-        this.sqs = new SQS({
-            httpOptions: { timeout: 5000 }
-        });
+    constructor(queueUrl: string, sqs: SQS | undefined = undefined) {
+        this.sqs = sqs ? sqs : new SQS();
         this.queueUrl = queueUrl;
     }
 
