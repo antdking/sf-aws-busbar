@@ -10,7 +10,8 @@
     "tsc": "tsc",
     "build": "rm -rf ./dist && tsc -p tsconfig.build.json",
     "ts-jest": "ts-jest",
-    "jest": "jest"
+    "jest": "jest",
+    "test": "jest"
   },
   "dependencies": {
     "aws-sdk": "^2.580.0",
