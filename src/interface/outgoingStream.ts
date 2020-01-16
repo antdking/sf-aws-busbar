@@ -1,5 +1,5 @@
-import Event from "./event";
+import Event from './event';
 
 export default interface OutgoingStream {
-    sendEvent(event: Event, name: string): Promise<void>;
+  sendEvent(event: Event, name: string): Promise<void>;
 }

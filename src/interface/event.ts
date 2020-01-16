@@ -1,6 +1,6 @@
 export default interface Event {
-    payload: object
-    event: {
-        replayId: number
-    }
+  payload: object
+  event: {
+    replayId: number
+  }
 }

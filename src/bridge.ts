@@ -1,23 +1,24 @@
-import IncomingStream from "./interface/incomingStream";
-import OutgoingStream from "./interface/outgoingStream";
-import Event from "./interface/event";
+import IncomingStream from './interface/incomingStream';
+import OutgoingStream from './interface/outgoingStream';
+import Event from './interface/event';
 
 
 export default class Bridge {
-    incomingStream: IncomingStream
-    outgoingStream: OutgoingStream
+  incomingStream: IncomingStream;
 
-    constructor(incomingStream: IncomingStream, outgoingStream: OutgoingStream) {
-        this.incomingStream = incomingStream
-        this.outgoingStream = outgoingStream
-    }
+  outgoingStream: OutgoingStream;
 
-    async connectEvent(name: string) {
-        console.log(`subscribing to ${name}`);
+  constructor(incomingStream: IncomingStream, outgoingStream: OutgoingStream) {
+    this.incomingStream = incomingStream;
+    this.outgoingStream = outgoingStream;
+  }
 
-        this.incomingStream.subscribeEvent(name, async (message: Event) => {
-            await this.outgoingStream.sendEvent(message, name);
-        });
-        console.log("subscribed");
-    }
+  async connectEvent(name: string) {
+    console.log(`subscribing to ${name}`);
+
+    this.incomingStream.subscribeEvent(name, async (message: Event) => {
+      await this.outgoingStream.sendEvent(message, name);
+    });
+    console.log('subscribed');
+  }
 }

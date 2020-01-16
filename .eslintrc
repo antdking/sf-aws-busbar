@@ -7,12 +7,14 @@
         "@typescript-eslint"
     ],
     "env": {
-        "jest": true
+        "jest": true,
+        "node": true
     },
     "rules": {
         "object-curly-spacing": [
             "error",
             "never"
-        ]
+        ],
+        "no-console": "off"
     }
 }
